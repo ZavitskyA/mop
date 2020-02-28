@@ -1,12 +1,16 @@
 import React, { FC } from 'react'
 import { IconButton, TableBody, TableCell, TableRow } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { existingExpensesListMakeSelector } from '../../../reducers/existingExpenses/existingExpensesListMakeSelector'
+import { removeExpense } from '../../../actions/removeExpense'
 
 export const ExistingExpensesTableBody: FC = () => {
   const expenses = useSelector(existingExpensesListMakeSelector())
+  const dispatch = useDispatch()
+  const onClick = (id: number) => dispatch(removeExpense(id))
 
+  // TODO: remove anonymous func
   return (
     <TableBody>
       {expenses.map(({ id, label, price }) => (
@@ -14,7 +18,7 @@ export const ExistingExpensesTableBody: FC = () => {
           <TableCell component="th" scope="row">{label}</TableCell>
           <TableCell align="right">{price}</TableCell>
           <TableCell align="right">
-            <IconButton aria-label="delete" color="primary">
+            <IconButton aria-label="delete" color="primary" onClick={() => onClick(id)}>
               <DeleteIcon/>
             </IconButton>
           </TableCell>

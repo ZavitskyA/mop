@@ -1,15 +1,25 @@
 import React, { FC } from 'react'
 import { Button } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
+import { useDispatch, useSelector } from 'react-redux'
+import { saveNewExpense } from '../../actions/newExpense/saveNewExpense'
+import { newExpenseFilledMakeSelector } from '../../reducers/newExpense/newExpenseFilledMakeSelector'
 
 export const SaveExpense: FC = () => {
+  const dispatch = useDispatch()
+  const onClick = () => dispatch(saveNewExpense())
+
+  const buttonEnabled = useSelector(newExpenseFilledMakeSelector())
+
   return (
     // TODO: translations and style
     <Button
-      style={{marginTop: 20, marginBottom: 20, width: '100%'}}
+      style={{ marginTop: 20, marginBottom: 20, width: '100%' }}
       variant="contained"
       color="primary"
+      onClick={onClick}
       endIcon={<Add/>}
+      disabled={!buttonEnabled}
     >
       Add to list
     </Button>

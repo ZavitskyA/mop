@@ -2,9 +2,14 @@ import { State } from '../reducers'
 import { applyPatches } from 'immer'
 import { PathReturnType } from '../actions/typings'
 import { PossibleExpensesDefaultState } from '../reducers/possibleExpenses/possibleExpenses'
+import { NewExpenseDefaultState } from '../reducers/newExpense/newExpense'
+import { ExistingExpenseDefaultState } from '../reducers/existingExpenses/existingExpenses'
 
 export type SetFieldByPathFieldValue = boolean | string | null | number
- | PossibleExpensesDefaultState;
+  | PossibleExpensesDefaultState
+  | ExistingExpenseDefaultState
+  | ExistingExpenseDefaultState[]
+  | NewExpenseDefaultState;
 
 interface SetFieldByPathPayload {
   path: PathReturnType;

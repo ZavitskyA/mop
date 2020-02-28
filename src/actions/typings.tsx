@@ -14,4 +14,7 @@ export interface Action<TPayload> {
 // TODO: add path types
 export type PathReturnType = any[];
 
-export type ATA = () => ThunkAction<void, State, {}, TAction>
+type AbstractThunkActionReturn = ThunkAction<void, State, {}, TAction>;
+
+export type ATA = () => AbstractThunkActionReturn
+export type APAWP1<P1> = (pr: P1) => AbstractThunkActionReturn;

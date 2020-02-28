@@ -4,5 +4,5 @@ export const possibleExpensesDefaultState = [];
 
 export interface PossibleExpenses {
   id: number;
-  name: string;
+  label: string;
 }

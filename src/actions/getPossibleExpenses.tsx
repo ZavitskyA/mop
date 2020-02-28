@@ -7,15 +7,15 @@ export const getPossibleExpenses: ATA = () => async (dispatch): Promise<void> =>
   const mockDataModel: PossibleExpensesDefaultState = [
     {
       id: 1,
-      name: 'Groceries'
+      label: 'Groceries'
     },
     {
       id: 2,
-      name: 'Entertainment'
+      label: 'Entertainment'
     },
     {
       id: 3,
-      name: 'Sports'
+      label: 'Sports'
     },
   ]
 

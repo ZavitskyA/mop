@@ -1,11 +1,11 @@
-import { PossibleExpenses } from '../possibleExpenses/possibleExpenses'
-
 export interface NewExpenseDefaultState {
-  selectedValue: PossibleExpenses | null,
-  price: number | null
+  selectedValue: number | null,
+  price: number | null,
+  label: string | null
 }
 
 export const newExpensesState: NewExpenseDefaultState = {
   selectedValue: null,
-  price: null
+  price: null,
+  label: null
 }

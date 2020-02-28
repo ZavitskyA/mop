@@ -2,17 +2,16 @@ import React, { FC } from 'react'
 import AddCircleIcon from '@material-ui/icons/AddCircle'
 import { IconButton } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
-import { setFieldByPath } from '../../actions/setFieldByPath'
 import { AddExpenseField } from './AddExpenseField'
+import { toggleAddExpense } from '../../actions/toggleAddExpense'
 
 export const AddExpense: FC = () => {
   const dispatch = useDispatch()
-  // TODO: move to separate action
-  const onClick = () => dispatch(setFieldByPath(['addExpense', 'visible'], true))
+  const onClick = () => dispatch(toggleAddExpense())
 
   return (
     <>
-      <IconButton onClick={onClick}>
+      <IconButton onClick={onClick} size="medium">
         <AddCircleIcon color="primary"/>
       </IconButton>
       <AddExpenseField/>

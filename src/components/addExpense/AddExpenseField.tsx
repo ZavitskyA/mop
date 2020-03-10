@@ -5,8 +5,10 @@ import { AddExpenseFieldAmount } from './AddExpenseFieldAmount'
 import { SaveExpense } from './SaveExpense'
 import { AddExpenseFieldSelect } from './AddExpenseFieldSelect'
 
+const addExpenseVisibleSelector = addExpenseVisibleMakeSelector()
+
 export const AddExpenseField: FC = () => {
-  const visible = useSelector(addExpenseVisibleMakeSelector())
+  const visible = useSelector(addExpenseVisibleSelector)
 
   if (!visible) {
     return null

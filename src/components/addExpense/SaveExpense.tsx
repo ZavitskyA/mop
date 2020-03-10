@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { saveNewExpense } from '../../actions/newExpense/saveNewExpense'
 import { newExpenseFilledMakeSelector } from '../../reducers/newExpense/newExpenseFilledMakeSelector'
 
+const newExpenseFilledSelector = newExpenseFilledMakeSelector()
+
 export const SaveExpense: FC = () => {
   const dispatch = useDispatch()
   const onClick = () => dispatch(saveNewExpense())
 
-  const buttonEnabled = useSelector(newExpenseFilledMakeSelector())
+  const buttonEnabled = useSelector(newExpenseFilledSelector)
 
   return (
     // TODO: translations and style

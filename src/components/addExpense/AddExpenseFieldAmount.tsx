@@ -5,9 +5,11 @@ import { setFieldByPath } from '../../actions/setFieldByPath'
 import { InputProps as StandardInputProps } from '@material-ui/core/Input/Input'
 import { newExpensePriceMakeSelector } from '../../reducers/newExpense/newExpensePriceMakeSelector'
 
+const newExpensePriceSelector = newExpensePriceMakeSelector();
+
 export const AddExpenseFieldAmount: FC = () => {
   const dispatch = useDispatch()
-  const price = useSelector(newExpensePriceMakeSelector())
+  const price = useSelector(newExpensePriceSelector)
   const onChange: StandardInputProps['onChange'] = (e) => dispatch(setFieldByPath(['newExpense', 'price'], e.target.value))
 
   return (

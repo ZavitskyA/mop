@@ -6,9 +6,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setNewExpenseCategory } from '../../actions/newExpense/setNewExpenseCategory'
 import { newExpenseSelectedValueMakeSelector } from '../../reducers/newExpense/newExpenseSelectedValueMakeSelector'
 
+const expenseSelector = possibleExpensesMakeSelector()
+const newExpenseValueSelector = newExpenseSelectedValueMakeSelector()
+
 export const AddExpenseFieldSelect: FC = () => {
-  const possibleExpenses = useSelector(possibleExpensesMakeSelector())
-  const value = useSelector(newExpenseSelectedValueMakeSelector())
+  const possibleExpenses = useSelector(expenseSelector)
+  const value = useSelector(newExpenseValueSelector)
   const dispatch = useDispatch()
 
   const onChange: SelectInputProps['onChange'] = (event) => {

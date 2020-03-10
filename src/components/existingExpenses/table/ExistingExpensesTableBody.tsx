@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { existingExpensesListMakeSelector } from '../../../reducers/existingExpenses/existingExpensesListMakeSelector'
 import { removeExpense } from '../../../actions/removeExpense'
 
+const expensesSelector = existingExpensesListMakeSelector();
+
 export const ExistingExpensesTableBody: FC = () => {
-  const expenses = useSelector(existingExpensesListMakeSelector())
+  const expenses = useSelector(expensesSelector)
   const dispatch = useDispatch()
   const onClick = (id: number) => dispatch(removeExpense(id))
 

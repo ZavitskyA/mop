@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useCallback } from 'react'
 import { Button } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,7 +9,7 @@ const newExpenseFilledSelector = newExpenseFilledMakeSelector()
 
 export const SaveExpense: FC = () => {
   const dispatch = useDispatch()
-  const onClick = () => dispatch(saveNewExpense())
+  const onClick = useCallback(() => dispatch(saveNewExpense()), [dispatch])
 
   const buttonEnabled = useSelector(newExpenseFilledSelector)
 

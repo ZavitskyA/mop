@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useCallback } from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core'
 import { SelectInputProps } from '@material-ui/core/Select/SelectInput'
 import { possibleExpensesMakeSelector } from '../../reducers/possibleExpenses/possibleExpensesMakeSelector'
@@ -14,9 +14,8 @@ export const AddExpenseFieldSelect: FC = () => {
   const value = useSelector(newExpenseValueSelector)
   const dispatch = useDispatch()
 
-  const onChange: SelectInputProps['onChange'] = (event) => {
-    dispatch(setNewExpenseCategory(event.target.value as string))
-  }
+  const onChange: SelectInputProps['onChange'] = useCallback((event) =>
+    dispatch(setNewExpenseCategory(event.target.value as string)), [dispatch])
 
   return (
     // TODO: style and translations

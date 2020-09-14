@@ -3,9 +3,7 @@ import { Button } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveNewExpense } from '../../actions/newExpense/saveNewExpense'
-import { newExpenseFilledMakeSelector } from '../../reducers/newExpense/newExpenseFilledMakeSelector'
-
-const newExpenseFilledSelector = newExpenseFilledMakeSelector()
+import { newExpenseFilledSelector } from '../../reducers/newExpense/newExpenseFilledMakeSelector'
 
 export const SaveExpense: FC = () => {
   const dispatch = useDispatch()

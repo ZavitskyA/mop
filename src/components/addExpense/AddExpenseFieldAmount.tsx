@@ -3,9 +3,7 @@ import { TextField } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 import { setFieldByPath } from '../../actions/setFieldByPath'
 import { InputProps as StandardInputProps } from '@material-ui/core/Input/Input'
-import { newExpensePriceMakeSelector } from '../../reducers/newExpense/newExpensePriceMakeSelector'
-
-const newExpensePriceSelector = newExpensePriceMakeSelector()
+import { newExpensePriceSelector } from '../../reducers/newExpense/newExpensePriceMakeSelector'
 
 export const AddExpenseFieldAmount: FC = () => {
   const dispatch = useDispatch()

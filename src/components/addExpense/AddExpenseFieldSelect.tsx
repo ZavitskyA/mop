@@ -1,13 +1,10 @@
 import React, { FC, useCallback } from 'react'
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core'
 import { SelectInputProps } from '@material-ui/core/Select/SelectInput'
-import { possibleExpensesMakeSelector } from '../../reducers/possibleExpenses/possibleExpensesMakeSelector'
+import { expenseSelector, } from '../../reducers/possibleExpenses/possibleExpensesMakeSelector'
 import { useDispatch, useSelector } from 'react-redux'
 import { setNewExpenseCategory } from '../../actions/newExpense/setNewExpenseCategory'
-import { newExpenseSelectedValueMakeSelector } from '../../reducers/newExpense/newExpenseSelectedValueMakeSelector'
-
-const expenseSelector = possibleExpensesMakeSelector()
-const newExpenseValueSelector = newExpenseSelectedValueMakeSelector()
+import { newExpenseValueSelector } from '../../reducers/newExpense/newExpenseSelectedValueMakeSelector'
 
 export const AddExpenseFieldSelect: FC = () => {
   const possibleExpenses = useSelector(expenseSelector)
